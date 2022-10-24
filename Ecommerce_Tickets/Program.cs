@@ -18,6 +18,7 @@ builder.Services.AddControllersWithViews();
 
 // Service Configuration
 builder.Services.AddScoped<IActorsService, ActorsService>();
+builder.Services.AddScoped<IProducersService, ProducersService>();
 
 var app = builder.Build();
 
