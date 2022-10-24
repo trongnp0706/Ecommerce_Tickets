@@ -1,6 +1,7 @@
 ﻿using Ecommerce_Tickets.Data;
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Ecommerce_Tickets.Controllers
 {
@@ -12,9 +13,10 @@ namespace Ecommerce_Tickets.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var allProducers = await _context.Producers.ToListAsync();
+            return View(allProducers);
         }
     }
 }
