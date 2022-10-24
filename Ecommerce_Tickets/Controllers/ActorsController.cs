@@ -16,7 +16,8 @@ namespace Ecommerce_Tickets.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            var data = _context.Actors.ToList();
+            return View(data);
         }
     }
 }
