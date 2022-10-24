@@ -1,4 +1,5 @@
 using Ecommerce_Tickets.Data;
+using Ecommerce_Tickets.Data.Services;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+// Service Configuration
+builder.Services.AddScoped<IActorsService, ActorsService>();
 
 var app = builder.Build();
 
