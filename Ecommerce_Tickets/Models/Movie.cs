@@ -1,11 +1,12 @@
-﻿using Ecommerce_Tickets.Data.Enums;
+﻿using Ecommerce_Tickets.Data.Base;
+using Ecommerce_Tickets.Data.Enums;
 
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ecommerce_Tickets.Models
 {
-    public class Movie
+    public class Movie : IEntityBase
     {
         [Key]
         public int Id { get; set; }
