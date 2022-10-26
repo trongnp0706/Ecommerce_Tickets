@@ -26,5 +26,12 @@ namespace Ecommerce_Tickets.Controllers
             var movieDetail = await _service.GetMovieByIdAsync(id);
             return View(movieDetail);
         }
+
+        //GET: Movies/Create
+        public IActionResult Create()
+        {
+            
+            return View();
+        }
     }
 }
