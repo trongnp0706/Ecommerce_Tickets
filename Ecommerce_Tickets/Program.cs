@@ -1,4 +1,5 @@
 using Ecommerce_Tickets.Data;
+using Ecommerce_Tickets.Data.Cart;
 using Ecommerce_Tickets.Data.Services;
 
 using Microsoft.AspNetCore.Identity;
@@ -22,6 +23,11 @@ builder.Services.AddScoped<IProducersService, ProducersService>();
 builder.Services.AddScoped<ICinemasService, CinemasService>();
 builder.Services.AddScoped<IMoviesService, MoviesService>();
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+builder.Services.AddSession();
+
 var app = builder.Build();
 
 //Seed database
@@ -43,6 +49,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthentication();
 app.UseAuthorization();
