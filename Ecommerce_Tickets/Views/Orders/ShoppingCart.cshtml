@@ -80,7 +80,7 @@
             //Configure environment
             env: 'sandbox',
             client: {
-                sandbox: 'AVBBL2zyeHxMyAULxNqHbtq7G9oRL3MKI9czDKap4PBdZ9POxpaLWJ7o8_zwkePdII7OeHGFE1vZ79SS'
+                sandbox: 'AW-KH75LJmmJzlGM0K_Fo7mgiI8tV6Tg3a8D3_pDetvV_NQ2O2-oLpqzF680_T8WipaWn0JPrFi1DP3r'
             },
             //Customize button
             locale: 'en_US',
@@ -93,6 +93,14 @@
             //Set up a payment
             payment: function (data, actions) {
                 console.log("payment set up");
+                return actions.payment.create({
+                    transactions: [{
+                        amount: {
+                            total: '0.01',
+                            currency: 'USD'
+                        }
+                    }]
+                });
             },
             //Execute the payment
             onAuthorize: function (data, actions) {
