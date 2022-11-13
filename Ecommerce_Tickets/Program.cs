@@ -33,6 +33,7 @@ var app = builder.Build();
 
 //Seed database
 AppDbInitializer.Seed(app);
+AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
